@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(void)
+{
+    char sen[] = "1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./";
+    char sen2[] = "34567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./12";
+    char big_sen[] = "!@#$%^&*()_+qwertyuiop{}|asdfghjkl:\"zxcvbnm<>?";
+    char big_sen2[] = "#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?!@";
+    char str[99999];
+    int n = 0;
+
+    while (gets(str))
+    {
+        for(int j = 0; j < strlen(str); j++)
+        {
+            for (int i = 0; i < strlen(sen2); i++)
+            {
+                if (str[j] == sen2[i])
+                {
+                    printf("%c", sen[i]);
+                    break;
+                }
+                if (str[j] == big_sen2[i])
+                {
+                    printf("%c", big_sen[i]);
+                    break;
+                }
+            }
+            if (str[j] == 32)
+            {
+                printf(" ");
+            }
+        }
+        puts("");
+    }
+    
+}
